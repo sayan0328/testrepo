@@ -1,0 +1,54 @@
+// Code in the main.c
+
+#include <stdio.h>
+int main()
+{
+    FILE *ifp, *ofp;
+    int sum=0, num, i, j;
+    float avg=0.0;
+    ifp = fopen("values.txt", "r");
+    ofp = fopen("answer-hw3.txt", "w+");
+    fscanf(ifp, "%d", &num);
+    int numberArray[num];
+    for (i = 0; i < num; i++){
+        fscanf(ifp, "%d", &numberArray[i]);}
+    printf("\nThe elements in the array are:\n");
+    fprintf(ofp, "The elements in the array are:\n");
+    for (i=0; i<num; i++){
+        printf("%d  ", numberArray[i]);
+        fprintf(ofp, "%d  ", numberArray[i]);}
+    for (j = 0; j < num; j++){
+        sum = sum + numberArray[j];}
+    avg = (float)sum / j;
+    printf("\nAverage Values %f", avg);
+    fprintf(ofp, "\nAverage Values %f", avg);
+    for (i = 1; i < num; ++i){
+        if (numberArray[0] < numberArray[i]){
+        numberArray[0] = numberArray[i];}}
+    printf("\nMax Value = %d\n\n", numberArray[0]);
+    fprintf(ofp, "\nMax Value = %d", numberArray[0]);
+    fclose(ofp);
+    return 0;
+}
+
+
+
+
+// Code in the values.txt
+
+4 9 11 12 15
+
+
+
+
+// Code in the answer-hw3.txt
+
+The elements in the array are:
+9  11  12  15  
+Average Values 11.750000
+Max Value = 15
+
+
+
+
+
